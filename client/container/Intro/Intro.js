@@ -17,13 +17,13 @@ const scaleVariants = {
 };
 
 const Intro = () => (
-  <div className={clsx(styles.app__header, styles.app__flex)}>
+  <div className={clsx(styles.app__intro, styles.app__flex)}>
     <motion.div
       whileInView={{ x: [-100, 0], opacity: [0, 1] }}
       transition={{ duration: 0.5 }}
-      className={styles.app__header_info}
+      className={styles.app__intro_info}
     >
-      <div className={styles.app__header_badge}>
+      <div className={styles.app__intro_badge}>
         <div className={clsx(styles.badge_cmp, styles.app__flex)}>
           <span>👋</span>
           <div>
@@ -55,7 +55,7 @@ const Intro = () => (
     <motion.div
       whileInView={{ opacity: [0, 1] }}
       transition={{ duration: 0.5, delayChildren: 0.5 }}
-      className={styles.app__header_img}
+      className={styles.app__intro_img}
     >
       <div>
         <img
@@ -75,7 +75,7 @@ const Intro = () => (
     <motion.div
       variants={scaleVariants}
       whileInView={scaleVariants.whileInView}
-      className={styles.app__header_circles}
+      className={styles.app__intro_circles}
     >
       {[
         '/Images/materialUI.png',
