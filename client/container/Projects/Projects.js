@@ -174,18 +174,20 @@ const Projects = () => {
 
                 {/* </a> */}
                 {/* </Link> */}
-                <Link href={project.codeLink}>
-                  <a target='_blank' rel='noreferrer'>
-                    <motion.div
-                      whileInView={{ scale: [0, 1] }}
-                      whileHover={{ scale: [1, 0.9] }}
-                      transition={{ duration: 0.25 }}
-                      className={styles.app__flex}
-                    >
-                      <AiFillGithub />
-                    </motion.div>
-                  </a>
-                </Link>
+                {project.codeLink !== '' && (
+                  <Link href={project.codeLink}>
+                    <a target='_blank' rel='noreferrer'>
+                      <motion.div
+                        whileInView={{ scale: [0, 1] }}
+                        whileHover={{ scale: [1, 0.9] }}
+                        transition={{ duration: 0.25 }}
+                        className={styles.app__flex}
+                      >
+                        <AiFillGithub />
+                      </motion.div>
+                    </a>
+                  </Link>
+                )}
               </motion.div>
             </div>
 
