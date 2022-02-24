@@ -7,7 +7,11 @@ import styles from '../styles/App.module.scss';
 const AppWrap = (Component, idName, bgColor) =>
   function HOC() {
     return (
-      <div id={idName} className={styles.app__container} style={{ backgroundColor: bgColor }}>
+      <div
+        id={idName}
+        className={idName === 'home' ? styles.app__main_container : styles.app__sub_container}
+        style={{ backgroundColor: bgColor }}
+      >
         <SocialMedia />
         <div className={clsx(styles.app__wrapper, styles.app__flex)}>
           <Component />

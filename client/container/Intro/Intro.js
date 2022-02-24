@@ -26,9 +26,11 @@ const Intro = () => (
       <div className={styles.app__intro_badge}>
         <div className={clsx(styles.badge_cmp, styles.app__flex)}>
           <span>👋</span>
-          <div>
+          <div style={{ marginLeft: '16px' }}>
             <p className={styles.p_text}>Hello, I am</p>
-            <h1 className={styles.head_text}>Dong Kyoung</h1>
+            <h1 className={styles.head_text} style={{ margin: 0 }}>
+              Dong Kyoung
+            </h1>
           </div>
         </div>
 
@@ -58,10 +60,11 @@ const Intro = () => (
       className={styles.app__intro_img}
     >
       <div>
-        <img
+        <img src='/Images/main.png' alt='profile_bg' />
+        {/* <img
           src='https://raw.githubusercontent.com/DongKyoungPark/DongKyoungPark/master/svg/developer.gif'
           alt='profile_bg'
-        />
+        /> */}
       </div>
       <motion.img
         whileInView={{ scale: [0, 1] }}
@@ -92,4 +95,4 @@ const Intro = () => (
   </div>
 );
 
-export default AppWrap(Intro, 'home', 'var(--primary-color)');
+export default AppWrap(Intro, 'home');

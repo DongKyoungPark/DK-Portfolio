@@ -16,7 +16,9 @@ $small-device: 600px;
   background-color: var(--primary-color);
 }
 
-.app__container {
+.app__main_container {
+  display: flex;
+  flex-direction: row;
   width: 100%;
   min-height: 100vh;
 
@@ -25,9 +27,19 @@ $small-device: 600px;
   background-size: cover;
   background-position: center;
   background-repeat: repeat;
+}
 
+.app__sub_container {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  min-height: 100vh;
+
+  position: relative;
+  background: url("/Images/bgWhite.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
 }
 
 .app__flex {
@@ -40,7 +52,7 @@ $small-device: 600px;
   flex: 1;
   width: 100%;
   flex-direction: column;
-  padding: 4rem 0;
+  padding: 3rem 0;
 
   @media screen and (max-width: $small-device) {
     padding: 4rem 1rem 2rem;
@@ -63,11 +75,12 @@ $small-device: 600px;
 }
 
 .head_text {
-  font-size: 2.75rem;
+  font-size: 1.75rem;
   font-weight: 800;
   text-align: center;
   color: var(--black-color);
   text-transform: capitalize;
+  margin-top: 2rem;
 
   span {
     color: var(--secondary-color);
@@ -75,10 +88,12 @@ $small-device: 600px;
 
   @media screen and (min-width: $large-device) {
     font-size: 4rem;
+    margin-top: 0rem;
   }
 
   @media screen and (max-width: $small-device) {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-top: 0rem;
   }
 }
 
