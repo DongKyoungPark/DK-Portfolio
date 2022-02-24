@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
-
 import Link from 'next/link';
+
+import { HiMenuAlt4, HiX } from 'react-icons/hi';
 
 import clsx from 'clsx';
 import styles from './Navigation.module.scss';
@@ -18,7 +18,7 @@ const Navigation = () => {
           {/* <img src={images.logo} alt='logo' /> */}
         </div>
         <ul className={styles.app__navbar_links}>
-          {['home', 'about', 'skills', 'work', 'contact'].map(item => (
+          {['home', 'about', 'skills', 'projects', 'contact'].map(item => (
             <li className={clsx(styles.app__flex, styles.p_text)} key={`link-${item}`}>
               <div />
               <Link href={`#${item}`}>
@@ -38,9 +38,9 @@ const Navigation = () => {
             >
               <HiX onClick={() => setToggle(false)} />
               <ul>
-                {['home', 'about', 'skills', 'work', 'contact'].map(item => (
-                  <li key={item}>
-                    <Link href={`#${item}`} onClick={() => setToggle(false)}>
+                {['home', 'about', 'skills', 'projects', 'contact'].map(item => (
+                  <li key={item} onClick={() => setToggle(false)}>
+                    <Link href={`#${item}`}>
                       <a>{item}</a>
                     </Link>
                   </li>

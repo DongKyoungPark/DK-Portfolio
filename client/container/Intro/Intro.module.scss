@@ -100,9 +100,8 @@
         }
     }
 
-    // circles with different height & width
-
     div:nth-child(1) {
+        margin-left: -50px;
         width: 60px;
         height: 60px;
     }
@@ -113,6 +112,7 @@
     }
 
     div:nth-child(3) {
+        margin-left: 40px;
         width: 100px;
         height: 100px;
     }
@@ -121,7 +121,9 @@
         width: 80px;
         height: 80px;
     }
+
     div:nth-child(5) {
+        margin-left: -40px;
         width: 60px;
         height: 60px;
     }
@@ -129,11 +131,24 @@
     @media screen and (max-width: $medium-device) {
         width: 100%;
         flex-direction: row;
+        align-items: center;
         flex-wrap: wrap;
         margin-left: 0;
 
         div {
             margin: 1rem;
+        }
+
+        div:nth-child(1) {
+            margin: 0;
+        }
+
+        div:nth-child(3) {
+            margin: 0;
+        }
+
+        div:nth-child(5) {
+            margin: 0;
         }
     }
 

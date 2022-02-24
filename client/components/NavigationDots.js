@@ -4,7 +4,7 @@ import styles from '../styles/App.module.scss';
 
 const NavigationDots = ({ active }) => (
   <div className={styles.app__navigation}>
-    {['home', 'about', 'work', 'skills', 'testimonial', 'contact'].map((item, index) => (
+    {['home', 'about', 'skills', 'projects', 'contact'].map((item, index) => (
       <Link href={`#${item}`} key={item + index}>
         <a
           className={styles.app__navigation_dot}

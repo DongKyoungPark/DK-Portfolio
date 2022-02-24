@@ -15,7 +15,7 @@
 }
 
 .app__profile_item {
-    width: 30%;
+    width: 25%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -32,5 +32,9 @@
     @media screen and (max-width: $medium-device) {
         width: 50%;
         margin: 2rem 4rem;
+    }
+
+    @media screen and (max-width: $small-device) {
+        width: 100%;
     }
 }

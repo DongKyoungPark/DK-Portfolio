@@ -31,8 +31,10 @@ const About = () => {
     <>
       <div className={clsx(styles.app__about, styles.app__flex)}>
         <h2 className={styles.head_text}>
-          I Know that <span>Good Developer</span> <br />
-          means <span>Good Business</span>
+          {/* I Know that <span>Good Developer</span> <br />
+          means <span>Good Business</span> */}
+          <span>developer</span> who takes the initiative to find a way
+          <br /> and <span>achieves goals</span> with <span>colleagues</span>
         </h2>
 
         <div className={styles.app__profiles}>
