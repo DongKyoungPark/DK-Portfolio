@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-import { motion } from 'framer-motion';
-
 import { AppWrap, MotionWrap } from '../../wrapper';
+import { client } from '../../utils/client';
 
 import clsx from 'clsx';
 import styles from './Contact.module.scss';
@@ -19,7 +19,7 @@ const Contact = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { username, email, message } = formData;
+  const { name, email, message } = formData;
 
   const handleChangeInput = e => {
     const { name, value } = e.target;
@@ -28,6 +28,21 @@ const Contact = () => {
 
   const handleSubmit = () => {
     setLoading(true);
+
+    const contact = {
+      _type: 'contact',
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    };
+
+    client
+      .create(contact)
+      .then(() => {
+        setLoading(false);
+        setIsFormSubmitted(true);
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -54,8 +69,8 @@ const Contact = () => {
                 className={styles.p_text}
                 type='text'
                 placeholder='Your Name'
-                name='username'
-                value={username}
+                name='name'
+                value={name}
                 onChange={handleChangeInput}
               />
             </div>
