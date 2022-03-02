@@ -1,18 +1,30 @@
-import { BsTwitter, BsInstagram } from 'react-icons/bs';
-import { FaFacebookF } from 'react-icons/fa';
+import Link from 'next/link';
+import { saveAs } from 'file-saver';
+
+import { GoMarkGithub } from 'react-icons/go';
+import { BiRocket } from 'react-icons/bi';
+import { FaRegFilePdf } from 'react-icons/fa';
 
 import styles from '../styles/App.module.scss';
 
 const SocialMedia = () => (
   <div className={styles.app__social}>
     <div>
-      <BsTwitter />
+      <Link href='https://www.rocketpunch.com/@E1lOl'>
+        <a target='_blank' rel='noreferrer'>
+          <BiRocket />
+        </a>
+      </Link>
+    </div>
+    <div onClick={() => saveAs('/Images/박동경_웹개발자_이력서.pdf', '박동경_웹개발자_이력서.pdf')}>
+      <FaRegFilePdf />
     </div>
     <div>
-      <FaFacebookF />
-    </div>
-    <div>
-      <BsInstagram />
+      <Link href='https://github.com/DongKyoungPark'>
+        <a target='_blank' rel='noreferrer'>
+          <GoMarkGithub />
+        </a>
+      </Link>
     </div>
   </div>
 );

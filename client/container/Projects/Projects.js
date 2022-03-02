@@ -209,7 +209,7 @@ const Projects = () => {
               </p>
 
               <div className={clsx(styles.app__project_tag, styles.app__flex)}>
-                <p className={styles.p_text}>{project.tags[0]}</p>
+                <p className={styles.p_text}>{project?.tags[0]}</p>
               </div>
             </div>
           </div>
@@ -243,6 +243,10 @@ const Projects = () => {
 
             <p className={styles.p_text} style={{ marginTop: 10 }}>
               <strong>제작기간 :</strong> {projects[activeProject]?.period}
+            </p>
+
+            <p className={styles.p_text} style={{ marginTop: 10 }}>
+              <strong>제작인원 :</strong> {projects[activeProject]?.devPerson}
             </p>
 
             <p className={styles.p_text} style={{ marginTop: 10 }}>

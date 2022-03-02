@@ -99,7 +99,10 @@ const Contact = () => {
           </div>
         ) : (
           <div>
-            <h3 className={styles.head_text}>Thank you for getting in touch!</h3>
+            <h3 className={styles.head_text}>
+              Thank you for getting in touch! <br />
+              I'll Keep in touch ASAP!
+            </h3>
           </div>
         )}
       </div>
