@@ -17,6 +17,10 @@ const Skills = () => {
   const [experiences, setExperiences] = useState([]);
   const [skills, setSkills] = useState([]);
 
+  const sortSkills = skills.sort((a, b) =>
+    a._createdAt < b._createdAt ? -1 : a._createdAt > b._createdAt ? 1 : 0,
+  );
+
   useEffect(() => {
     const query = '*[_type == "experiences"]';
     const skillsQuery = '*[_type == "skills"]';
@@ -36,7 +40,7 @@ const Skills = () => {
 
       <div className={styles.app__skills_container}>
         <motion.div className={styles.app__skills_list}>
-          {skills?.map((skill, index) => (
+          {sortSkills?.map((skill, index) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}

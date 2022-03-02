@@ -26,6 +26,10 @@ const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
+  const sortFilterProject = filterProject?.sort((a, b) =>
+    a.period > b.period ? -1 : a.period < b.period ? 1 : 0,
+  );
+
   const handleProjectFilter = item => {
     setActiveFilter(item);
     setAnimateCard([{ y: 100, opacity: 0 }]);
@@ -84,7 +88,7 @@ const Projects = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className={styles.app__project_portfolio}
       >
-        {filterProject.map((project, index) => (
+        {sortFilterProject.map((project, index) => (
           <div className={clsx(styles.app__project_item, styles.app__flex)} key={index}>
             <div className={clsx(styles.app__project_img, styles.app__flex)}>
               <img src={urlFor(project.projectImage)} alt={project.title} />
