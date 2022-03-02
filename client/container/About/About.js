@@ -13,21 +13,6 @@ const app__about = {
   flexDirection: 'column',
 };
 
-// const abouts = [
-//   {
-//     title: 'Frontend Developer',
-//     description:
-//       'I am a frontend developer with a passion for building beautiful and functional web applications.',
-//     imgUrl: '/Images/about01.png',
-//   },
-//   {
-//     title: 'Backend Developer',
-//     description:
-//       'I am a backend developer with a passion for building beautiful and functional web applications.',
-//     imgUrl: '/Images/about02.png',
-//   },
-// ];
-
 const About = () => {
   const [abouts, setAbouts] = useState([]);
 

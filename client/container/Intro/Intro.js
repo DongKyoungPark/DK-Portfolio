@@ -61,10 +61,6 @@ const Intro = () => (
     >
       <div>
         <img src='/Images/main.png' alt='profile_bg' />
-        {/* <img
-          src='https://raw.githubusercontent.com/DongKyoungPark/DongKyoungPark/master/svg/developer.gif'
-          alt='profile_bg'
-        /> */}
       </div>
       <motion.img
         whileInView={{ scale: [0, 1] }}
