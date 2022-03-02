@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavigationDots, SocialMedia } from '../components';
 
 import clsx from 'clsx';

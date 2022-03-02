@@ -240,36 +240,46 @@ const Projects = () => {
             <p className={styles.p_text} style={{ marginTop: 10 }}>
               {projects[activeProject]?.description}
             </p>
+
             <p className={styles.p_text} style={{ marginTop: 10 }}>
               <strong>제작기간 :</strong> {projects[activeProject]?.period}
             </p>
+
             <p className={styles.p_text} style={{ marginTop: 10 }}>
               <strong>기술스택 :</strong>&nbsp;
               {projects[activeProject]?.tags?.map((tag, index) => (
                 <span key={index} style={{ margin: '0 4px 4px 0' }}>{`'${tag}'`}</span>
               ))}
             </p>
-            <p className={styles.p_text} style={{ marginTop: 10 }}>
-              <strong>시연영상 :</strong>&nbsp;
-              {projects[activeProject]?.projectVideo?.map((item, index) => (
-                <Link key={index} href={item}>
+
+            {projects[activeProject]?.projectVideo !== ('' || undefined) && (
+              <p className={styles.p_text} style={{ marginTop: 10 }}>
+                <strong>시연영상 :</strong>&nbsp;
+                {projects[activeProject]?.projectVideo?.map((item, index) => (
+                  <Link key={index} href={item}>
+                    <a target='_blank' rel='noreferrer'>
+                      {item} &nbsp;&nbsp;
+                    </a>
+                  </Link>
+                ))}
+              </p>
+            )}
+
+            {projects[activeProject]?.projectLink !== ('' || undefined) && (
+              <p className={styles.p_text} style={{ marginTop: 10 }}>
+                <strong>홈페이지 :</strong>&nbsp;
+                <Link href={projects[activeProject]?.projectLink}>
                   <a target='_blank' rel='noreferrer'>
-                    {item} &nbsp;&nbsp;
+                    {projects[activeProject]?.projectLink}
                   </a>
                 </Link>
-              ))}
-            </p>
-            <p className={styles.p_text} style={{ marginTop: 10 }}>
-              <strong>홈페이지 :</strong>&nbsp;
-              <Link href={projects[activeProject]?.projectLink}>
-                <a target='_blank' rel='noreferrer'>
-                  {projects[activeProject]?.projectLink}
-                </a>
-              </Link>
-            </p>
+              </p>
+            )}
+
             <p className={styles.p_text} style={{ marginTop: 10 }}>
               <strong>회고 :</strong> {projects[activeProject]?.review}
             </p>
+
             {projects[activeProject]?.ps !== ('' || undefined) && (
               <p className={styles.p_text} style={{ marginTop: 10 }}>
                 <strong>ps :</strong> {projects[activeProject]?.ps}
