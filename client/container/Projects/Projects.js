@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import disableScroll from 'disable-scroll';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { urlFor, client } from '../../utils/client';
+import { urlFor } from '../../utils/client';
 import { Modal } from '../../components';
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 
@@ -17,10 +17,9 @@ const app__projects = {
   flexDirection: 'column',
 };
 
-const Projects = () => {
+const Projects = ({ projects }) => {
   const [showModal, setShowModal] = useState(false);
 
-  const [projects, setProjects] = useState([]);
   const [activeProject, setActiveProject] = useState(0);
   const [filterProject, setFilterProject] = useState(projects);
   const [activeFilter, setActiveFilter] = useState('All');
@@ -40,7 +39,7 @@ const Projects = () => {
       if (item === 'All') {
         setFilterProject(projects);
       } else {
-        setFilterProject(projects.filter(project => project.tags.includes(item)));
+        setFilterProject(projects?.filter(project => project?.tags?.includes(item)));
       }
     }, 500);
   };
@@ -50,15 +49,6 @@ const Projects = () => {
     setShowModal(true);
     disableScroll.on();
   };
-
-  useEffect(() => {
-    const query = '*[_type == "projects"]';
-
-    client.fetch(query).then(data => {
-      setProjects(data);
-      setFilterProject(data);
-    });
-  }, []);
 
   return (
     <>
@@ -88,10 +78,10 @@ const Projects = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className={styles.app__project_portfolio}
       >
-        {sortFilterProject.map((project, index) => (
+        {sortFilterProject?.map((project, index) => (
           <div className={clsx(styles.app__project_item, styles.app__flex)} key={index}>
             <div className={clsx(styles.app__project_img, styles.app__flex)}>
-              <img src={urlFor(project.projectImage)} alt={project.title} />
+              <img src={urlFor(project?.projectImage)} alt={project?.title} />
 
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
@@ -112,7 +102,7 @@ const Projects = () => {
                 {/* </a> */}
                 {/* </Link> */}
                 {project.codeLink !== ('' || undefined) && (
-                  <Link href={project.codeLink}>
+                  <Link href={project?.codeLink}>
                     <a target='_blank' rel='noreferrer'>
                       <motion.div
                         whileInView={{ scale: [0.5, 1] }}
@@ -131,7 +121,7 @@ const Projects = () => {
             <div className={clsx(styles.app__project_content, styles.app__flex)}>
               <h4 className={styles.bold_text}>{project.title}</h4>
               <p className={styles.p_text} style={{ marginTop: 10 }}>
-                {project.description}
+                {project?.description}
               </p>
 
               <div className={clsx(styles.app__project_tag, styles.app__flex)}>
