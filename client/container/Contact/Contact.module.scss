@@ -46,14 +46,15 @@
 }
 
 .app__contact_form {
-    width: 50%;
-    flex-direction: column;
+    display: flex;
     justify-content: flex-start;
+    flex-direction: column;
+    width: 50%;
 
-    div {
+    .app__input {
         width: 100%;
 
-        margin: 0 0 1rem 0;
+        // margin: 0 0 1rem 0;
         border-radius: 10px;
         cursor: pointer;
         background-color: var(--primary-color);
@@ -79,6 +80,19 @@
 
         &:hover {
             box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .app__validation {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 30px;
+        padding: 0.5rem;
+
+        p {
+            color: rgba(255, 0, 0, 0.8);
         }
     }
 

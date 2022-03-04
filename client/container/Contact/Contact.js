@@ -14,19 +14,51 @@ const app__contact = {
   flexDirection: 'column',
 };
 
+const emailValidation = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [validation, setValidation] = useState({});
 
   const { name, email, message } = formData;
+
+  const validate = (fieldValues = formData) => {
+    let temp = { ...validation };
+
+    if ('name' in fieldValues) temp.name = fieldValues.name !== '' ? null : '이름을 입력해주세요.';
+    if ('email' in fieldValues)
+      temp.email = emailValidation.test(fieldValues.email) ? null : '이메일 형식이 맞지 않습니다.';
+    if ('message' in fieldValues)
+      temp.message = fieldValues.message !== '' ? null : '메세지를 입력해주세요.';
+
+    setValidation({ ...temp });
+    if (fieldValues === formData) return Object.values(temp).every(x => x === '');
+  };
 
   const handleChangeInput = e => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    validate({ [name]: value });
   };
 
   const handleSubmit = () => {
+    if (name === '') {
+      setValidation({ ...validation, name: '이름을 입력해주세요.' });
+      return;
+    }
+
+    if (email === '') {
+      setValidation({ ...validation, email: '이메일을 입력해주세요.' });
+      return;
+    }
+
+    if (message === '') {
+      setValidation({ ...validation, message: '메세지를 입력해주세요.' });
+      return;
+    }
+
     setLoading(true);
 
     const contact = {
@@ -64,7 +96,7 @@ const Contact = () => {
 
         {!isFormSubmitted ? (
           <div className={clsx(styles.app__contact_form, styles.app__flex)}>
-            <div className={styles.app__flex}>
+            <div className={clsx(styles.app__flex, styles.app__input)}>
               <input
                 className={styles.p_text}
                 type='text'
@@ -74,7 +106,11 @@ const Contact = () => {
                 onChange={handleChangeInput}
               />
             </div>
-            <div className='app__flex'>
+            <div className={styles.app__validation}>
+              {validation?.name && <p className={styles.p_text}>{validation?.name}</p>}
+            </div>
+
+            <div className={clsx(styles.app__flex, styles.app__input)}>
               <input
                 className={styles.p_text}
                 type='email'
@@ -84,7 +120,11 @@ const Contact = () => {
                 onChange={handleChangeInput}
               />
             </div>
-            <div>
+            <div className={styles.app__validation}>
+              {validation?.email && <p className={styles.p_text}>{validation?.email}</p>}
+            </div>
+
+            <div className={clsx(styles.app__flex, styles.app__input)}>
               <textarea
                 className={styles.p_text}
                 placeholder='Your Message'
@@ -93,6 +133,10 @@ const Contact = () => {
                 onChange={handleChangeInput}
               />
             </div>
+            <div className={styles.app__validation}>
+              {validation?.message && <p className={styles.p_text}>{validation?.message}</p>}
+            </div>
+
             <button type='button' className={styles.p_text} onClick={handleSubmit}>
               {!loading ? 'Send Message' : 'Sending...'}
             </button>
