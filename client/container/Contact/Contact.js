@@ -94,7 +94,7 @@ const Contact = () => {
           </p>
         </div>
 
-        {isFormSubmitted ? (
+        {!isFormSubmitted ? (
           <div className={clsx(styles.app__contact_form, styles.app__flex)}>
             <div className={clsx(styles.app__flex, styles.app__input)}>
               <input
