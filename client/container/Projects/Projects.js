@@ -57,7 +57,7 @@ const Projects = ({ projects }) => {
       </h2>
 
       <div className={styles.app__project_filter}>
-        {['React', 'Next', 'All'].map((item, index) => (
+        {['React', 'Next', 'Vite', 'All'].map((item, index) => (
           <div
             key={index}
             onClick={() => handleProjectFilter(item)}
@@ -125,7 +125,7 @@ const Projects = ({ projects }) => {
               </p>
 
               <div className={clsx(styles.app__project_tag, styles.app__flex)}>
-                <p className={styles.p_text}>{project?.tags[0]}</p>
+                <p className={styles.p_text}>{project ? project?.tags[0] : ''}</p>
               </div>
             </div>
           </div>
