@@ -10,7 +10,7 @@ import styles from '../styles/App.module.scss';
 const SocialMedia = () => (
   <div className={styles.app__social}>
     <div>
-      <Link href='https://www.rocketpunch.com/@E1lOl'>
+      <Link href='https://www.wanted.co.kr/cv/CAEEAAQBAE0CBQAFBQJNQw=='>
         <a target='_blank' rel='noreferrer'>
           <BiRocket />
         </a>
