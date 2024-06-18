@@ -7,7 +7,7 @@
   "author": "E1lOl <e1loldan@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "sanity start",
+    "start": "npx sanity start",
     "build": "sanity build"
   },
   "keywords": [
@@ -26,6 +26,5 @@
     "react": "^17.0",
     "react-dom": "^17.0",
     "styled-components": "^5.2.0"
-  },
-  "devDependencies": {}
+  }
 }
