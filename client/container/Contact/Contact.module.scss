@@ -1,127 +1,127 @@
-@import "../../styles/App.module.scss";
+@import '../../styles/App.module.scss';
 
 .app__contact {
-    flex: 1;
-    width: 100%;
-    flex-direction: column;
+  flex: 1;
+  width: 100%;
+  flex-direction: column;
 }
 
 .app__contact_container {
-    width: 80%;
-    margin: 3rem auto;
+  width: 80%;
+  margin: 3rem auto;
 
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 
-    @media screen and (max-width: $medium-device) {
-        width: 100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  @media screen and (max-width: $medium-device) {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .app__contact_img {
-    width: 50%;
-    margin-right: 2rem;
+  width: 50%;
+  margin-right: 2rem;
 
-    img {
-        width: 100%;
-        border-radius: 10px;
-    }
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
 
-    @media screen and (max-width: $medium-device) {
-        width: 100%;
-        padding-bottom: 1rem;
-        margin: 0;
-    }
+  @media screen and (max-width: $medium-device) {
+    width: 100%;
+    padding-bottom: 1rem;
+    margin: 0;
+  }
 }
 
 .app__contact_cards .app__contact_card:last-child {
-    background-color: #f2f7fb;
+  background-color: #f2f7fb;
 }
 
 .app__contact_cards .app__contact_card:hover {
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
 }
 
 .app__contact_form {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 50%;
+
+  .app__input {
+    width: 100%;
+
+    // margin: 0 0 1rem 0;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+
+    transition: all 0.3s ease-in-out;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.95rem;
+      border: none;
+      border-radius: 7px;
+      background-color: #fff;
+
+      font-family: var(--font-base);
+      color: var(--secondary-color);
+      outline: none;
+    }
+
+    textarea {
+      height: 170px;
+    }
+
+    &:hover {
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .app__validation {
     display: flex;
+    align-items: center;
     justify-content: flex-start;
-    flex-direction: column;
-    width: 50%;
+    width: 100%;
+    height: 30px;
+    padding: 0.5rem;
 
-    .app__input {
-        width: 100%;
-
-        // margin: 0 0 1rem 0;
-        border-radius: 10px;
-        cursor: pointer;
-        background-color: var(--primary-color);
-
-        transition: all 0.3s ease-in-out;
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 0.95rem;
-            border: none;
-            border-radius: 7px;
-            background-color: #fff;
-
-            font-family: var(--font-base);
-            color: var(--secondary-color);
-            outline: none;
-        }
-
-        textarea {
-            height: 170px;
-        }
-
-        &:hover {
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-        }
+    p {
+      color: rgba(255, 0, 0, 0.8);
     }
+  }
 
-    .app__validation {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: 100%;
-        height: 30px;
-        padding: 0.5rem;
+  button {
+    padding: 0.7rem 2rem;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--secondary-color);
 
-        p {
-            color: rgba(255, 0, 0, 0.8);
-        }
+    font-weight: 500;
+    color: var(--white-color);
+    outline: none;
+    margin: 1rem 0 0 0;
+    font-family: var(--font-base);
+
+    transition: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    cursor: pointer;
+
+    &:hover {
+      background-color: #2430af;
     }
+  }
 
-    button {
-        padding: 0.7rem 2rem;
-        border-radius: 10px;
-        border: none;
-        background-color: var(--secondary-color);
+  @media screen and (max-width: $medium-device) {
+    width: 100%;
+    margin: 0;
+  }
 
-        font-weight: 500;
-        color: var(--white-color);
-        outline: none;
-        margin: 1rem 0 0 0;
-        font-family: var(--font-base);
-
-        transition: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-        cursor: pointer;
-
-        &:hover {
-            background-color: #2430af;
-        }
-    }
-
-    @media screen and (max-width: $medium-device) {
-        width: 100%;
-        margin: 0;
-    }
-
-    @media screen and (max-width: $small-device) {
-        margin: 1rem 0;
-    }
+  @media screen and (max-width: $small-device) {
+    margin: 1rem 0;
+  }
 }

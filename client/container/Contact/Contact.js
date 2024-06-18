@@ -94,7 +94,7 @@ const Contact = () => {
           </p>
         </div>
 
-        {!isFormSubmitted ? (
+        {isFormSubmitted ? (
           <div className={clsx(styles.app__contact_form, styles.app__flex)}>
             <div className={clsx(styles.app__flex, styles.app__input)}>
               <input
@@ -142,8 +142,8 @@ const Contact = () => {
             </button>
           </div>
         ) : (
-          <div>
-            <h3 className={styles.head_text}>
+          <div className={styles.app__flex}>
+            <h3 className={styles.head_text} style={{ marginTop: 0 }}>
               Thank you for getting in touch! <br />
               I&apos;ll Keep in touch ASAP!
             </h3>
