@@ -68,7 +68,7 @@ export default {
     {
       name: 'review',
       title: 'Review',
-      type: 'string',
+      type: 'text',
     },
     {
       name: 'ps',
