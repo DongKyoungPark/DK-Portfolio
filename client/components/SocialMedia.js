@@ -10,7 +10,7 @@ import styles from '../styles/App.module.scss';
 const SocialMedia = () => (
   <div className={styles.app__social}>
     <div>
-      <Link href='https://www.notion.so/e1lol/14375b2c5bdb80c1b729f07fa87ee33a'>
+      <Link href='https://www.notion.so/e1lol/14375b2c5bdb80c1b729f07fa87ee33a?pvs=4'>
         <a target='_blank' rel='noreferrer'>
           <BiRocket />
         </a>
