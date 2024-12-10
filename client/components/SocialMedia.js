@@ -16,7 +16,9 @@ const SocialMedia = () => (
         </a>
       </Link>
     </div>
-    <div onClick={() => saveAs('/Images/박동경_웹개발자_이력서.pdf', '박동경_웹개발자_이력서.pdf')}>
+    <div
+      onClick={() => saveAs('/Images/프론트엔드_박동경_이력서.pdf', '프론트엔드_박동경_이력서.pdf')}
+    >
       <FaRegFilePdf />
     </div>
     <div>
