@@ -197,7 +197,26 @@ const Projects = ({ projects }) => {
             )}
 
             <p className={styles.p_text} style={{ marginTop: 10 }}>
-              <strong>회고 :</strong> {projects[activeProject]?.review}
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <strong>회고</strong>
+                <p>
+                  {projects[activeProject]?.review
+                    ?.replace(/\./g, '.<br />')
+                    .replace(/\]/g, ']<br />')
+                    .split('<br />')
+                    .map((sentence, index) => (
+                      <span key={index}>
+                        {sentence}
+                        {index <
+                          projects[activeProject]?.review
+                            ?.replace(/\./g, '.<br />')
+                            .replace(/\]/g, ']<br />')
+                            .split('<br />').length -
+                            1 && <br />}
+                      </span>
+                    ))}
+                </p>
+              </div>
             </p>
 
             {projects[activeProject]?.ps !== ('' || undefined) && (
